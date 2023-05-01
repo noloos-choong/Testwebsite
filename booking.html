@@ -102,7 +102,7 @@
                 <div class="col-md-6 bg-dark d-flex align-items-center">
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
-                        <h1 class="text-white mb-4">Book A Table Online</h1>
+                        <h1 id="ViewValue" class="text-white mb-4">Book A Table Online</h1>
                         <form>
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -144,6 +144,21 @@
                                 </div>
                             </div>
                         </form>
+
+                        <button onclick="getSound()" class="btn btn-primary w-100 py-3" type="submit">test</button>
+                        <script>
+                            function getSound(){
+                                console.log("ssss");
+                                const q = document.getElementById("name").value
+                                console.log(q)
+                                fetch(`https://port-0-animal-5o1j2llh3am0ew.sel4.cloudtype.app/sound/${q}`)
+                                .then((response) => response.json())
+                                .then((data) => {
+                                    console.log(data.sound)
+                                    document.getElementById("ViewValue").innerHTML = data.sound;
+                                });
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
